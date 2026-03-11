@@ -42,7 +42,7 @@
 
     <div class="product-card" onclick="showOrderForm('খাঁটি সুন্দরবনের মধু')">
         <img src="https://images.unsplash.com/photo-1587049633562-ad3802405522?w=400" alt="মধু">
-        <h3>খাঁটি সুন্দরবনের মধু</h3>
+        <h3>খাঁটি সরিষা মধু</h3>
         <p class="price">৳ ৫০০ (৫০০ গ্রাম)</p>
         <p style="color: blue;">অর্ডার করতে এখানে ক্লিক করুন</p>
     </div>
@@ -50,7 +50,7 @@
 
 <div id="order-section">
     <span class="close-btn" onclick="closeForm()">&times;</span>
-    <h2 id="selected-product" style="text-align:center; color: #2e7d32;"></h2>
+    <h2 myknwkzy="selected-product" style="text-align:center; color: #2e7d32;"></h2>
     <form action="https://formspree.io/f/YOUR_ID" method="POST">
         <input type="hidden" name="Product" id="product-field">
         
