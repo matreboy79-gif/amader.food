@@ -1,0 +1,90 @@
+[index.html](https://github.com/user-attachments/files/25894679/index.html)
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>খাঁটি পণ্যের দোকান</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; margin: 0; padding: 0; }
+        header { background-color: #2e7d32; color: white; padding: 20px; text-align: center; }
+        
+        /* পণ্য প্রদর্শনের গ্রিড */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; max-width: 1000px; margin: auto; }
+        .product-card { background: white; border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
+        .product-card:hover { transform: scale(1.03); border: 2px solid #2e7d32; }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .product-card h3 { margin: 15px 0; color: #333; }
+        .price { color: #e67e22; font-weight: bold; font-size: 1.2rem; }
+
+        /* অর্ডার ফরম (শুরুতে লুকানো থাকবে) */
+        #order-section { display: none; max-width: 500px; margin: 30px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative; }
+        .close-btn { position: absolute; right: 15px; top: 10px; font-size: 25px; cursor: pointer; color: red; }
+        
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .confirm-btn { background-color: #2e7d32; color: white; border: none; padding: 15px; width: 100%; border-radius: 5px; font-size: 18px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>খাঁটি পণ্যের অনলাইন শপ</h1>
+    <p>পণ্য পছন্দ করে ক্লিক করুন এবং অর্ডার দিন</p>
+</header>
+
+<div class="product-grid" id="product-list">
+    <div class="product-card" onclick="showOrderForm('খাঁটি সরিষার তেল')">
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400" alt="সরিষার তেল">
+        <h3>খাঁটি সরিষার তেল</h3>
+        <p class="price">৳ ৩৫০ (১ লিটার)</p>
+        <p style="color: blue;">অর্ডার করতে এখানে ক্লিক করুন</p>
+    </div>
+
+    <div class="product-card" onclick="showOrderForm('খাঁটি সুন্দরবনের মধু')">
+        <img src="https://images.unsplash.com/photo-1587049633562-ad3802405522?w=400" alt="মধু">
+        <h3>খাঁটি সুন্দরবনের মধু</h3>
+        <p class="price">৳ ৫০০ (৫০০ গ্রাম)</p>
+        <p style="color: blue;">অর্ডার করতে এখানে ক্লিক করুন</p>
+    </div>
+</div>
+
+<div id="order-section">
+    <span class="close-btn" onclick="closeForm()">&times;</span>
+    <h2 id="selected-product" style="text-align:center; color: #2e7d32;"></h2>
+    <form action="https://formspree.io/f/YOUR_ID" method="POST">
+        <input type="hidden" name="Product" id="product-field">
+        
+        <label>আপনার নাম:</label>
+        <input type="text" name="Name" placeholder="নাম লিখুন" required>
+
+        <label>মোবাইল নম্বর:</label>
+        <input type="tel" name="Phone" placeholder="০১৬XXXXXXXX" required>
+
+        <label>আপনার ঠিকানা:</label>
+        <textarea name="Address" placeholder="গ্রাম, থানা, জেলা লিখুন" required></textarea>
+
+        <button type="submit" class="confirm-btn">অর্ডার নিশ্চিত করুন</button>
+    </form>
+</div>
+
+<script>
+    function showOrderForm(productName) {
+        // পণ্য তালিকা লুকিয়ে ফরম দেখানো
+        document.getElementById('product-list').style.display = 'none';
+        document.getElementById('order-section').style.display = 'block';
+        
+        // কোন পণ্য সিলেক্ট করা হয়েছে তা লিখে দেওয়া
+        document.getElementById('selected-product').innerText = productName + " অর্ডার করুন";
+        document.getElementById('product-field').value = productName;
+    }
+
+    function closeForm() {
+        // ফরম লুকিয়ে আবার পণ্য তালিকা দেখানো
+        document.getElementById('order-section').style.display = 'none';
+        document.getElementById('product-list').style.display = 'grid';
+    }
+</script>
+
+</body>
+</html>
+rajib-pure-food.netlify.app
